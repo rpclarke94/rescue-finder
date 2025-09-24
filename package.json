@@ -1,0 +1,66 @@
+{
+  "name": "rescue-finder-etl",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "import": "node scripts/import_dogs.mjs",
+    "import:enhanced": "node scripts/import_dogs_enhanced.mjs",
+    "import:optimized": "node scripts/import_dogs_optimized.mjs",
+    "import:fixed": "node scripts/import_dogs_fixed.mjs",
+    "import:aggressive": "node scripts/import_dogs_aggressive.mjs",
+    "prisma:studio": "npx prisma studio",
+    "prisma:migrate": "npx prisma migrate dev --name init",
+    "export": "node scripts/export_dogs.mjs",
+    "clear": "node scripts/clear_dogs.mjs",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@tailwindcss/postcss": "^4.1.13",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.6.1",
+    "next": "^15.5.3",
+    "node-fetch": "^3.3.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.21",
+    "babel-jest": "^29.7.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "postcss": "^8.5.6",
+    "prisma": "^6.16.2",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.m?js$": "babel-jest"
+    },
+    "testMatch": [
+      "**/tests/**/*.test.mjs",
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.mjs",
+      "scripts/**/*.mjs",
+      "!**/node_modules/**"
+    ]
+  }
+}

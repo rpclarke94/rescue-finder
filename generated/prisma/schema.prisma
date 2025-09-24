@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Dog {
+  id          Int     @id @default(autoincrement())
+  externalId  String  @unique // stable ID from scraper
+  name        String
+  imageUrl    String?
+  link        String?
+  age         String? // cleaned age like "2 years"
+  sex         String? // "Male" / "Female"
+  breed       String? // canonical breed name
+  location    String? // Town
+  county      String? // County
+  region      String? // Region
+  charity     String?
+  description String?
+
+  ageCategory    String? // e.g. "Puppy", "Senior"
+  seoSlug        String?
+  seoTitle       String?
+  seoDescription String?
+
+  scrapedDate DateTime? // when scraped
+  lastSeen    DateTime? // last time found in scrape
+}

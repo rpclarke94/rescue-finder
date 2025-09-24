@@ -1,0 +1,35 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Dog {
+  id           String   @id @default(cuid())
+  externalId   String   @unique
+  name         String
+  imageUrl     String?
+  link         String?
+  age          String?    // "5 years" | "10 months" | "Unknown"
+  sex          String?    // "Male" | "Female" | "Unknown"
+  breed        String?    // one from allowed list | "Crossbreed" | "Unknown"
+  location     String?    // town only
+  county       String?
+  region       String?
+  ageCategory  String?
+  charity      String?
+  description  String?
+  scrapedDate  DateTime?  // parsed ISO date if present
+  seoSlug      String?
+  seoTitle     String?
+  seoDesc      String?
+  lastSeen     DateTime?  // ISO timestamp of last ETL touch
+
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}

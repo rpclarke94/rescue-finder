@@ -1,0 +1,72 @@
+{
+  "SA147HB": {
+    "town": "",
+    "county": "Carmarthenshire",
+    "region": ""
+  },
+  "DN197NE": {
+    "town": "",
+    "county": "North Lincolnshire",
+    "region": "Yorkshire and the Humber"
+  },
+  "NW106BJ": {
+    "town": "",
+    "county": "Hammersmith and Fulham",
+    "region": "Greater London"
+  },
+  "E194PD": {
+    "town": "",
+    "county": "",
+    "region": ""
+  },
+  "HU70YQ": {
+    "town": "",
+    "county": "Kingston upon Hull, City of",
+    "region": "Yorkshire and the Humber"
+  },
+  "CF729NH": {
+    "town": "",
+    "county": "Rhondda Cynon Taf",
+    "region": ""
+  },
+  "CV230RL": {
+    "town": "",
+    "county": "Warwickshire",
+    "region": "West Midlands"
+  },
+  "LU79EY": {
+    "town": "",
+    "county": "Buckinghamshire",
+    "region": "South East"
+  },
+  "BA99RB": {
+    "town": "",
+    "county": "Somerset",
+    "region": "South West"
+  },
+  "DE137BD": {
+    "town": "",
+    "county": "Staffordshire",
+    "region": "West Midlands"
+  },
+  "DE63BE": {
+    "town": "",
+    "county": "Derbyshire",
+    "region": "East Midlands"
+  },
+  "LA89BS": {
+    "town": "",
+    "county": "Westmorland and Furness",
+    "region": "North West"
+  },
+  "PE100AU": {
+    "town": "",
+    "county": "Lincolnshire",
+    "region": "East Midlands"
+  },
+  "EX151NE": {
+    "town": "",
+    "county": "Devon",
+    "region": "South West"
+  }
+}
