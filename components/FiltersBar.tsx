@@ -263,7 +263,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                   >
                     <option value="">Sex</option>
                     {uniqueSexes.map((sex) => (
-                      <option key={sex} value={sex}>{sex}</option>
+                      <option key={sex} value={sex || ''}>{sex}</option>
                     ))}
                   </select>
                   <div className="select-icon">
@@ -282,7 +282,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                   >
                     <option value="">Breed</option>
                     {uniqueBreeds.map((breed) => (
-                      <option key={breed} value={breed}>{breed}</option>
+                      <option key={breed} value={breed || ''}>{breed}</option>
                     ))}
                   </select>
                   <div className="select-icon">
@@ -301,7 +301,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                   >
                     <option value="">County</option>
                     {uniqueCounties.map((county) => (
-                      <option key={county} value={county}>{county}</option>
+                      <option key={county} value={county || ''}>{county}</option>
                     ))}
                   </select>
                   <div className="select-icon">
@@ -320,7 +320,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                   >
                     <option value="">Region</option>
                     {uniqueRegions.map((region) => (
-                      <option key={region} value={region}>{region}</option>
+                      <option key={region} value={region || ''}>{region}</option>
                     ))}
                   </select>
                   <div className="select-icon">
@@ -455,7 +455,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                 >
                   <option value="">All sexes</option>
                   {uniqueSexes.map((sex) => (
-                    <option key={sex} value={sex}>{sex}</option>
+                    <option key={sex} value={sex || ''}>{sex}</option>
                   ))}
                 </select>
                 <div className="select-icon">
@@ -474,7 +474,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                 >
                   <option value="">All breeds</option>
                   {uniqueBreeds.map((breed) => (
-                    <option key={breed} value={breed}>{breed}</option>
+                    <option key={breed} value={breed || ''}>{breed}</option>
                   ))}
                 </select>
                 <div className="select-icon">
@@ -493,7 +493,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                 >
                   <option value="">All counties</option>
                   {uniqueCounties.map((county) => (
-                    <option key={county} value={county}>{county}</option>
+                    <option key={county} value={county || ''}>{county}</option>
                   ))}
                 </select>
                 <div className="select-icon">
@@ -512,7 +512,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                 >
                   <option value="">All regions</option>
                   {uniqueRegions.map((region) => (
-                    <option key={region} value={region}>{region}</option>
+                    <option key={region} value={region || ''}>{region}</option>
                   ))}
                 </select>
                 <div className="select-icon">
