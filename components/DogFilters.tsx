@@ -113,7 +113,7 @@ export default function DogFilters({ dogs, onFilteredDogsChange }: DogFiltersPro
             >
               <option value="">All breeds</option>
               {uniqueBreeds.map((breed) => (
-                <option key={breed} value={breed}>{breed}</option>
+                <option key={breed} value={breed || ''}>{breed}</option>
               ))}
             </select>
           </div>
