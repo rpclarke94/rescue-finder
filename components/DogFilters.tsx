@@ -128,7 +128,7 @@ export default function DogFilters({ dogs, onFilteredDogsChange }: DogFiltersPro
             >
               <option value="">All ages</option>
               {uniqueAgeCategories.map((ageCategory) => (
-                <option key={ageCategory} value={ageCategory}>{ageCategory}</option>
+                <option key={ageCategory} value={ageCategory || ''}>{ageCategory}</option>
               ))}
             </select>
           </div>
@@ -143,7 +143,7 @@ export default function DogFilters({ dogs, onFilteredDogsChange }: DogFiltersPro
             >
               <option value="">All regions</option>
               {uniqueRegions.map((region) => (
-                <option key={region} value={region}>{region}</option>
+                <option key={region} value={region || ''}>{region}</option>
               ))}
             </select>
           </div>
@@ -158,7 +158,7 @@ export default function DogFilters({ dogs, onFilteredDogsChange }: DogFiltersPro
             >
               <option value="">All counties</option>
               {uniqueCounties.map((county) => (
-                <option key={county} value={county}>{county}</option>
+                <option key={county} value={county || ''}>{county}</option>
               ))}
             </select>
           </div>
@@ -173,7 +173,7 @@ export default function DogFilters({ dogs, onFilteredDogsChange }: DogFiltersPro
             >
               <option value="">All</option>
               {uniqueSexes.map((sex) => (
-                <option key={sex} value={sex}>{sex}</option>
+                <option key={sex} value={sex || ''}>{sex}</option>
               ))}
             </select>
           </div>
