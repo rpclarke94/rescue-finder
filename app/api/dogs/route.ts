@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
+    console.log('Fetching dogs from database...')
     const dogs = await prisma.dog.findMany({
       orderBy: [
         { lastSeen: 'desc' },
@@ -10,6 +11,7 @@ export async function GET() {
       ]
       // Removed limit to show all dogs
     })
+    console.log(`Found ${dogs.length} dogs in database`)
 
     const formattedDogs = dogs.map(dog => ({
       ...dog,
