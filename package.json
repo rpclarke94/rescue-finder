@@ -19,6 +19,7 @@
     "eslint:fix": "eslint . --fix",
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "npx prisma migrate deploy",
     "start": "next start",
     "lint": "next lint"
   },
