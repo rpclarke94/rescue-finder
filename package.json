@@ -19,7 +19,8 @@
     "eslint:fix": "eslint . --fix",
     "dev": "next dev",
     "build": "npx prisma generate && next build",
-    "postbuild": "npx prisma migrate deploy",
+    "vercel-build": "npx prisma generate && next build && node scripts/vercel-postbuild.js",
+    "postbuild": "node scripts/vercel-postbuild.js",
     "start": "next start",
     "lint": "next lint"
   },
