@@ -56,9 +56,9 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
 
     // Custom sort to put 'Puppy' first, then alphabetical
     return ageCategories.sort((a, b) => {
-      if (a.toLowerCase() === 'puppy') return -1
-      if (b.toLowerCase() === 'puppy') return 1
-      return a.localeCompare(b)
+      if (a?.toLowerCase() === 'puppy') return -1
+      if (b?.toLowerCase() === 'puppy') return 1
+      return (a || '').localeCompare(b || '')
     })
   }, [dogs])
 
