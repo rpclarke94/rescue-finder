@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     try {
       await resend.emails.send({
-        from: 'contact@rescuefinder.co.uk', // You'll need to verify this domain in Resend
+        from: 'contact@rescuefinder.co.uk', // Now verified in Resend
         to: [process.env.CONTACT_EMAIL || 'your-email@example.com'], // Your email address
         subject: `New Contact Form Message from ${sanitizedData.name}`,
         html: `
