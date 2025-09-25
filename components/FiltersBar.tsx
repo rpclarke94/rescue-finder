@@ -244,7 +244,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                   >
                     <option value="">Age</option>
                     {uniqueAgeCategories.map((ageCategory) => (
-                      <option key={ageCategory} value={ageCategory}>{ageCategory}</option>
+                      <option key={ageCategory} value={ageCategory || ''}>{ageCategory}</option>
                     ))}
                   </select>
                   <div className="select-icon">
@@ -436,7 +436,7 @@ export default function FiltersBar({ dogs, onFilteredDogsChange }: FiltersBarPro
                 >
                   <option value="">All ages</option>
                   {uniqueAgeCategories.map((ageCategory) => (
-                    <option key={ageCategory} value={ageCategory}>{ageCategory}</option>
+                    <option key={ageCategory} value={ageCategory || ''}>{ageCategory}</option>
                   ))}
                 </select>
                 <div className="select-icon">
