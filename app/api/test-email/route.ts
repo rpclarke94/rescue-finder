@@ -3,7 +3,7 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export async function POST() {
+async function testEmail() {
   try {
     console.log('=== Email Test Debug ===')
     console.log('RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY)
@@ -56,4 +56,13 @@ Time: ${new Date().toLocaleString()}
       }
     }, { status: 500 })
   }
+}
+
+// Export both GET and POST handlers
+export async function GET() {
+  return testEmail()
+}
+
+export async function POST() {
+  return testEmail()
 }
