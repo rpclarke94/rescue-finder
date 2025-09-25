@@ -45,7 +45,7 @@ coverage/
 temp/
 
 # Prisma
-migrations/
+# migrations/ - Commented out so migrations can be committed for production
 
 # Vercel
 .vercel
