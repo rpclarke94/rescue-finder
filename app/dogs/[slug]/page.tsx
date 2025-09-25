@@ -7,13 +7,14 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params
   const dog = await prisma.dog.findFirst({
-    where: { seoSlug: params.slug }
+    where: { seoSlug: resolvedParams.slug }
   })
 
   if (!dog) {
@@ -57,8 +58,9 @@ function Badge({ children, variant = 'neutral' }: { children: React.ReactNode; v
 }
 
 export default async function DogPage({ params }: Props) {
+  const resolvedParams = await params
   const dog = await prisma.dog.findFirst({
-    where: { seoSlug: params.slug }
+    where: { seoSlug: resolvedParams.slug }
   })
 
   if (!dog) {
