@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { Resend } from 'resend'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 interface ContactFormData {
   name: string
@@ -63,19 +66,51 @@ export async function POST(request: NextRequest) {
           'Unknown'
     }
 
-    // For now, we'll just log the contact form submission
-    // In production, you would typically:
-    // 1. Send an email using a service like SendGrid, SES, or Resend
-    // 2. Store the submission in a database
-    // 3. Send confirmation emails to both user and admin
+    // Send email using Resend
+    try {
+      await resend.emails.send({
+        from: 'contact@rescuefinder.co.uk', // You'll need to verify this domain in Resend
+        to: [process.env.CONTACT_EMAIL || 'your-email@example.com'], // Your email address
+        subject: `New Contact Form Message from ${sanitizedData.name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>From:</strong> ${sanitizedData.name} (${sanitizedData.email})</p>
+          <p><strong>Time:</strong> ${new Date(sanitizedData.timestamp).toLocaleString()}</p>
+          <p><strong>Message:</strong></p>
+          <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 10px 0;">
+            ${sanitizedData.message.replace(/\n/g, '<br>')}
+          </div>
+          <hr>
+          <p style="color: #666; font-size: 12px;">
+            IP: ${sanitizedData.ip.split(',')[0]}<br>
+            User Agent: ${sanitizedData.userAgent}
+          </p>
+        `,
+        text: `
+New Contact Form Message
+
+From: ${sanitizedData.name} (${sanitizedData.email})
+Time: ${new Date(sanitizedData.timestamp).toLocaleString()}
+
+Message:
+${sanitizedData.message}
+
+---
+IP: ${sanitizedData.ip.split(',')[0]}
+User Agent: ${sanitizedData.userAgent}
+        `
+      })
+
+      console.log('Contact form email sent successfully')
+    } catch (emailError) {
+      console.error('Failed to send contact form email:', emailError)
+      // Don't fail the request if email fails - still log the submission
+    }
 
     console.log('Contact form submission:', {
       ...sanitizedData,
       ip: sanitizedData.ip.split(',')[0] // Only log first IP for privacy
     })
-
-    // Simulate email sending delay
-    await new Promise(resolve => setTimeout(resolve, 500))
 
     // Return success response
     return NextResponse.json(
